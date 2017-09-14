@@ -5,6 +5,7 @@ import com.google.appengine.api.utils.SystemProperty;
 import java.io.IOException;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.TreeMap;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,10 +29,12 @@ public class HelloAppEngine extends HttpServlet {
     public static String getInfo() {
         StringBuilder sb = new StringBuilder();
         Properties props = System.getProperties();
+        TreeMap<String, String> map = new TreeMap<>();
+        props.forEach((key, val) -> map.put((String) key, (String) val));
         String k, v;
-        for (Entry<Object, Object> p : props.entrySet()) {
-            k = (String) p.getKey();
-            v = (String) p.getValue();
+        for (Entry<String, String> p : map.entrySet()) {
+            k = p.getKey();
+            v = p.getValue();
             sb.append(k);
             sb.append("=");
             sb.append(v);
