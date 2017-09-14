@@ -9,7 +9,7 @@
 <body>
     <h1>Hello App Engine -- Java 8!</h1>
 
-  <p>This is <%= HelloAppEngine.getInfo() %>.</p>
+  <pre>This is <%= HelloAppEngine.getInfo() %>.</pre>
   <table>
     <tr>
       <td colspan="2" style="font-weight:bold;">Available Servlets:</td>
